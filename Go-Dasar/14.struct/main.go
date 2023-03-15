@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // Deklarasi Struct
 //type student struct {
 //	name  string
@@ -155,16 +153,65 @@ import "fmt"
 //}
 
 // Inisialisasi Slice Anonymous Struct
-func main() {
-	var allStudents = []struct {
-		person string
-		grade  int
-	}{
-		{person: person{"bily", 22}, grade: 2},
-		{person: person{"hakim", 22}, grade: 3},
-		{person: person{"ganteng", 24}, grade: 3},
-	}
-	for _, student := range allStudents {
-		fmt.Println(student)
-	}
+//func main() {
+//	var allStudents = []struct {
+//		person string
+//		grade  int
+//	}{
+//		{person: person{"bily", 22}, grade: 2},
+//		{person: person{"hakim", 22}, grade: 3},
+//		{person: person{"ganteng", 24}, grade: 3},
+//	}
+//	for _, student := range allStudents {
+//		fmt.Println(student)
+//	}
+//}
+
+// Deklarasi Anonymous Struct Menggunakan Keyword var
+// Hanya deklarasi
+//var student struct{
+//	grade int
+//}
+//
+//// deklarasi sekaligus inisialisasi
+//var student = struct {
+//	grade int
+//}{
+//	12,
+//}
+
+// Nested Struct
+//type student struct {
+//	person struct{
+//		name string
+//		age int
+//	}
+//	grade int
+//	hobbies []string
+//}
+
+// Deklarasi Dan Inisialisasi Struct Secara Horizontal
+//type person struct {
+//	name    string
+//	age     int
+//	hobbies []string
+//}
+
+// Tag property dalam struct
+//type person struct {
+//	name string `tag1`
+//	age int `tag2`
+//}
+
+//Type alias
+type person struct {
+	name string
+	age int
 }
+type People = person
+
+var p1 = Person{"bily", 22}
+fmt.Println(p1)
+
+var p2 = People{"hakim", 22}
+fmt.Println(p2)
